@@ -1,0 +1,19 @@
+version: '1.0'
+
+services:
+  api:
+    image: dotnet-engine:1.01
+    container_name: livestock_be_dev
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_CLI_HOME: /app
+    command: ["dotnet", "watch", "run", "--urls", "http://0.0.0.0:${APP_PORT}"]
+
+
+ 
+    

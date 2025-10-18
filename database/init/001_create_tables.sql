@@ -1,0 +1,46 @@
+CREATE TABLE IF NOT EXISTS animal_status (
+   id SERIAL PRIMARY KEY,
+   name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS animal_origin (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS animal_stage (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS animal (
+	id SERIAL PRIMARY KEY,
+	origin INT NOT NULL,
+	status INT NOT NULL,
+    stage INT,
+	sex VARCHAR(10) CHECK (sex IN ('hembra', 'macho')) NOT NULL,
+	breed VARCHAR(10),
+	birth_date DATE NOT NULL,
+	created TIMESTAMP DEFAULT NOW(),
+	updated TIMESTAMP DEFAULT NOW(),
+	CONSTRAINT fk_origin FOREIGN KEY (origin) REFERENCES animal_origin(id),
+	CONSTRAINT fk_status FOREIGN KEY (status) REFERENCES animal_status(id),
+    CONSTRAINT fk_stage FOREIGN KEY (stage) REFERENCES animal_stage(id)
+);
+
+
+INSERT INTO animal_status (name) VALUES ('registrado');
+INSERT INTO animal_status (name) VALUES ('vendido');
+INSERT INTO animal_status (name) VALUES ('sacrificado');
+INSERT INTO animal_status (name) VALUES ('fallecimiento');
+
+INSERT INTO animal_stage (name) VALUES ('nacimiento');
+INSERT INTO animal_stage (name) VALUES ('destete');
+INSERT INTO animal_stage (name) VALUES ('crecimiento');
+INSERT INTO animal_stage (name) VALUES ('reproduccion');
+INSERT INTO animal_stage (name) VALUES ('gestacion');
+INSERT INTO animal_stage (name) VALUES ('lactante');
+INSERT INTO animal_stage (name) VALUES ('engorde');
+
+INSERT INTO animal_origin (name) VALUES ('nacido');
+INSERT INTO animal_origin (name) VALUES ('comprado');
