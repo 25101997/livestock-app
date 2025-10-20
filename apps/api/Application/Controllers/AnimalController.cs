@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using API.Application.Models;
 using API.Application.Interfaces;
-
 using API.Application.DTOs;
 using API.Application.Services;
-using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {

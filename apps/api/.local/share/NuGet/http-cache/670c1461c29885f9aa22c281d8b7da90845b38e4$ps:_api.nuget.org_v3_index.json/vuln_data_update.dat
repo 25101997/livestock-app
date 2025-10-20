@@ -1,1 +1,1 @@
-{"amazon.iondotnet":[{"url":"https://github.com/advisories/GHSA-q5r6-9qwq-g2wj","severity":2,"versions":"(, 1.3.2)"}]}
+{"apache.nms.amqp":[{"url":"https://github.com/advisories/GHSA-4mjw-xr5x-prpc","severity":3,"versions":"(, 2.4.0)"}],"smidge":[{"url":"https://github.com/advisories/GHSA-9rvm-p3qm-f4vv","severity":1,"versions":"(, 4.6.0)"}],"mammoth":[{"url":"https://github.com/advisories/GHSA-rmjr-87wv-gf87","severity":1,"versions":"(, 1.11.0)"}]}

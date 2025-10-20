@@ -6,7 +6,7 @@ namespace API.Application.Interfaces
     public interface IAnimalService
     {
         // Retorna todas las categorías
-        Task<IEnumerable<Animal>> GetAllAsync();
+        Task<IEnumerable<AnimalDto>> GetAllAsync();
 
         // Crea una categoría nueva
         Task<Animal> CreateAsync(AnimalDto dto);

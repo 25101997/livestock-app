@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using API.Data;
 using API.Application.Interfaces;
 using API.Application.Repositories;
 using API.Application.Services;
+using API.Application.Mapping;
 using API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalService, AnimalService>();
 
+//Automaper
+builder.Services.AddAutoMapper(typeof(AnimalProfile)); 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
@@ -32,6 +37,8 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
     });
 });
+
+
 
 var app = builder.Build();
 

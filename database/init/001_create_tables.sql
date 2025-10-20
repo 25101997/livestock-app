@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS animal (
     CONSTRAINT fk_stage FOREIGN KEY (stage) REFERENCES animal_stage(id)
 );
 
+INSERT INTO animal (origin, status, stage, sex, breed, birth_date) VALUES (1,1,1,'hembra', '', '08-01-2025')
 
 INSERT INTO animal_status (name) VALUES ('registrado');
 INSERT INTO animal_status (name) VALUES ('vendido');

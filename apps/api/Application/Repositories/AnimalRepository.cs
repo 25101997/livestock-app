@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using API.Application.Models;
+using API.Application.DTOs;
 using API.Application.Interfaces;
 using API.Data;
 
@@ -15,6 +16,7 @@ namespace API.Application.Repositories
             _context = context;
         }
 
+        //Debuelve todos los datos
         public async Task<IEnumerable<Animal>> GetAllAsync()
         {
             return await _context.Animals
