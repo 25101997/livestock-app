@@ -11,7 +11,7 @@ namespace API.Application.Interfaces
         // Crea una categoría nueva
         Task<Animal> CreateAsync(AnimalDto dto);
 
-        // Retorna una categoría por ID
-        //Task<Category?> GetByIdAsync(int id);
+        // Retorna una registro de la tabla por ID
+        Task<Animal?> GetByIdAsync(int id);
     }
 }

@@ -5,10 +5,14 @@ namespace API.Application.Interfaces
 {
     public interface IAnimalRepository
     {
-        // Devuelve todas las categorías en modo asíncrono
+        // Devuelve todas las en modo asíncrono
         Task<IEnumerable<Animal>> GetAllAsync();
 
-        // Crea una nueva categoría y la persiste en BD
+        // Crea una nueva y la persiste en BD
         Task<Animal> CreateAsync(Animal animal);
+
+        // 
+        Task<Animal?> GetByIdAsync(int id);
+
     }
 }

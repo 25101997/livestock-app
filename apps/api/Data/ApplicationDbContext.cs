@@ -7,9 +7,9 @@ namespace API.Data
     {
         //public required DbSet<Category> Categories { get; set; }
         public DbSet<Animal> Animals => Set<Animal>();
-        public DbSet<AnimalStatus> AnimalStatuses => Set<AnimalStatus>();
-        public DbSet<AnimalOrigin> AnimalOrigins => Set<AnimalOrigin>();
-        public DbSet<AnimalStage> AnimalStages => Set<AnimalStage>();
+        public DbSet<AnimalStatus> Statuses => Set<AnimalStatus>();
+        public DbSet<AnimalOrigin> Origins => Set<AnimalOrigin>();
+        public DbSet<AnimalStage> Stages => Set<AnimalStage>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

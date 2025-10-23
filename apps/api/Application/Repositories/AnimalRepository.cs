@@ -31,29 +31,11 @@ namespace API.Application.Repositories
             return animal;
         }
 
-/*
-        public async Task<Category?> GetByIdAsync(int id)
+        public async Task<Animal?> GetByIdAsync(int id)
         {
-            return await _context.Categories
+            return await _context.Animals
                 .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Id == id);
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
-
-        public async Task<Category?> GetByNameAsync(string name)
-        {
-            // AsNoTracking para lectura sin rastreo
-            return await _context.Categories
-                .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Name == name);
-        }
-
-        public async Task<Category?> GetByNameAndParentIdAsync(string name, int? parentId)
-        {
-            return await _context.Categories
-                .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Name == name && c.ParentId == parentId);
-        }
-
-*/
     }
 }

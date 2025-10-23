@@ -25,13 +25,32 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] AnimalDto dto)
+        public async Task<IActionResult> Post([FromBody] AnimalDto dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                var newAnimal = await _animalService.CreateAsync(dto);
+                return CreatedAtAction(nameof(GetById), new { id = newAnimal.Id }, newAnimal);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = $"Error interno: {ex.Message}" });
+            }
+        }
 
-            var newAnimal = await _animalService.CreateAsync(dto);
-            return Ok(newAnimal); 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var animal = await _animalService.GetByIdAsync(id);
+
+            if (animal == null)
+                return NotFound();
+
+            return Ok(animal);
         }
     }
 }
